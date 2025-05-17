@@ -1,0 +1,4 @@
+flask==2.0.1
+flask-socketio==5.1.1
+websocket-client==1.2.1
+pybluez==0.23
