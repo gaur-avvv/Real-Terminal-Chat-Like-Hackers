@@ -24,7 +24,7 @@ A versatile local network chat application that supports multiple communication 
 ## Installation
 Clone the repository:
 
-```git clone https://github.com/yourusername/local_chat.git```
+```git clone https://github.com/gaur-avvv/local_chat.git```
 
 ```cd local_chat```
 
