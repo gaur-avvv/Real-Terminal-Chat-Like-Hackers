@@ -47,66 +47,75 @@ Run the server script. This will host both the web UI and the WebSocket server f
 ```bash
 python server.py
 ```
-The server will start on `0.0.0.0:5000`. It will also print instructions on how to find your machine's local IP address. You'll need to share this IP address with other users on your network who want to connect.
 
-**Finding Your Server's IP Address:**
-To allow other users on your local network to connect to the server, they need its IP address. The server script will display common commands to find it when it starts. Here's a summary:
-*   **Windows:** Open Command Prompt and type `ipconfig`. Look for the 'IPv4 Address'.
-*   **Linux:** Open a terminal and type `ip addr` or `hostname -I`.
-*   **macOS:** Open Terminal and type `ifconfig`. Look for the 'inet' address.
+- The server will start on 0.0.0.0:5000. It will also print instructions on how to find your machine's local IP address. You'll need to share this IP address with other users on your network who want to connect.
 
-**B. Connect with a Client:**
+- Finding Your Server's IP Address: To allow other users on your local network to connect to the server, they need its IP address. The server script will display common commands to find it when it starts.
+
+Here's a summary:
+
+Windows: Open Command Prompt and type ipconfig. Look for the 'IPv4 Address'.
+
+Linux: Open a terminal and type ip addr or hostname -I.
+
+macOS: Open Terminal and type ifconfig. Look for the 'inet' address.
+
+B. Connect with a Client:
 
 Users have two options to connect:
 
-*   **Web Client:**
-    Open a web browser and navigate to `http://<server_ip>:5000` (replace `<server_ip>` with the actual IP address of the machine running `server.py`). This is suitable for all devices, including mobile phones.
+- Web Client: Open a web browser and navigate to http://<server_ip>:5000 (replace <server_ip> with the actual IP address of the machine running server.py). This is suitable for all devices, including mobile phones.
 
-*   **Terminal Client:**
-    Run the terminal client script:
-    ```bash
-    python client.py
-    ```
-    The client will prompt you to enter the server's IP address. Enter the IP address of the machine where `server.py` is running.
+- Terminal Client: Run the terminal client script:
 
-### 2. Bluetooth Chat
+```python client.py```
+The client will prompt you to enter the server's IP address. Enter the IP address of the machine where ```server.py``` is running.
 
+2. Bluetooth Chat
 This mode allows for direct peer-to-peer communication between two Bluetooth-enabled devices.
 
-**Requirements & Setup:**
-*   **PyBluez:** Ensure PyBluez is installed (it's in `requirements.txt`).
-*   **Bluetooth Enabled:** Make sure Bluetooth is enabled on both devices.
-*   **Device Pairing & Discoverability:** For best results, devices should be paired at the operating system level before attempting to connect via the application. Ensure your device is discoverable by other Bluetooth devices.
 
-**How to Run:**
-1.  **Start the Bluetooth Server:**
-    One user starts the Bluetooth server script:
-    ```bash
-    python blue_server.py
-    ```
-    The server will advertise the "BluetoothChatService" and wait for a connection, printing the RFCOMM channel it's using.
+## Requirements & Setup:
 
-2.  **Start the Bluetooth Client:**
-    The other user runs the Bluetooth client script:
-    ```bash
-    python blue_client.py
-    ```
-    The client will search for nearby Bluetooth devices, list them, and then attempt to find and connect to the "BluetoothChatService" on the selected device.
+```bash
+PyBluez: Ensure PyBluez is installed '(it's in requirements.txt).'
 
-**Important Notes for Bluetooth Chat:**
-*   **Two Users Only:** The current Bluetooth scripts are designed for a one-to-one chat session.
-*   **Reliability:** Bluetooth connectivity can vary based on OS, drivers, hardware, and distance. If you encounter issues:
-    *   Confirm devices are paired at the OS level.
-    *   Try restarting Bluetooth on both devices.
-    *   Ensure the server script is running and successfully advertised the service.
-    *   Check the console for any Bluetooth-related error messages on both client and server.
+Bluetooth Enabled: Make sure Bluetooth is enabled on both devices.
+
+Device Pairing & Discoverability: For best results, devices should be paired at the operating system level before attempting to connect via the application. Ensure your device is discoverable by other Bluetooth devices.
+```
+
+## How to Run:
+
+Start the Bluetooth Server: One user starts the Bluetooth server script:
+
+python blue_server.py
+The server will advertise the "BluetoothChatService" and wait for a connection, printing the RFCOMM channel it's using.
+
+Start the Bluetooth Client: The other user runs the Bluetooth client script:
+
+python blue_client.py
+The client will search for nearby Bluetooth devices, list them, and then attempt to find and connect to the "BluetoothChatService" on the selected device.
+
+## Important Notes for Bluetooth Chat:
+
+Two Users Only: The current Bluetooth scripts are designed for a one-to-one chat session.
+
+Reliability: Bluetooth connectivity can vary based on OS, drivers, hardware, and distance. If you encounter issues:
+
+Confirm devices are paired at the OS level.
+
+Try restarting Bluetooth on both devices.
+
+Ensure the server script is running and successfully advertised the service.
+
+Check the console for any Bluetooth-related error messages on both client and server.
 
 ## Commands
-
 The Terminal Client (for Network Chat) and the Bluetooth Client support the following commands:
--   `/exit` - Quit the chat application.
--   `/whoami` - Display your current username.
--   `/clear` - Clear the terminal screen.
+```bash
+/exit - Quit the chat application.
 
----
-*This README provides an overview of the local_chat application, its features, and how to use them.*
+/whoami - Display your current username.
+
+/clear - Clear the terminal screen.
