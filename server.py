@@ -21,3 +21,10 @@ def handle_message(data):
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000)
+    print("\nServer is running on 0.0.0.0:5000.")
+    print("Clients on your local network can connect to you using your machine's local IP address.")
+    print("To find your IP address:")
+    print("  - On Windows: Open Command Prompt and type 'ipconfig'")
+    print("  - On Linux: Open a terminal and type 'ip addr' or 'hostname -I'")
+    print("  - On macOS: Open Terminal and type 'ifconfig'")
+    print("Share this IP address with other users.\n")

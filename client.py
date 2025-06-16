@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 
 username = input("Enter your username: ")
+server_ip = input("Enter the server's IP address (e.g., 192.168.1.5): ")
 
 def on_message(ws, message):
     print("\n" + message + "\n> ", end="")
@@ -33,7 +34,7 @@ def on_open(ws):
 
 if __name__ == "__main__":
     websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("ws://localhost:5000/socket.io/?EIO=4&transport=websocket",
+    ws = websocket.WebSocketApp(f"ws://{server_ip}:5000/socket.io/?EIO=4&transport=websocket",
                                 on_open=on_open,
                                 on_message=on_message,
                                 on_error=on_error,
